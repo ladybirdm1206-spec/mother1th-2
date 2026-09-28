@@ -562,10 +562,32 @@
     <div class="max-w-3xl mx-auto px-5">
       <div class="flex flex-col sm:flex-row items-center sm:items-center gap-5 sm:gap-6 mb-8 text-center sm:text-left">
         <div class="relative shrink-0">
-          <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden ring-4 ring-[#008080]/20 shadow-lg bg-white relative">
-            <img src="hirasensei.jpg" alt="伴走者 ひら先生" class="w-full h-full object-cover">
+          <input type="file" id="teacher-photo-input" accept="image/*" class="hidden" onchange="previewTeacherPhoto(this)">
+          <div 
+            onclick="document.getElementById('teacher-photo-input').click()" 
+            title="クリックしてお写真を選択"
+            class="w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden ring-4 ring-[#008080]/20 shadow-lg bg-white cursor-pointer relative group flex items-center justify-center transition-transform hover:scale-105"
+          >
+            <img 
+              id="teacher-avatar-img"
+              src="hirasensei.jpg" 
+              alt="伴走者 ひら先生" 
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'; document.getElementById('photo-placeholder').style.display='flex';"
+              onload="this.style.display='block'; document.getElementById('photo-placeholder').style.display='none';"
+            >
+            <div id="photo-placeholder" class="absolute inset-0 flex flex-col items-center justify-center bg-[#E8F4F2] text-[#006B6B] text-xs text-center p-2 font-mincho font-bold">
+              <i class="fa-solid fa-camera text-lg mb-1 text-[#008080]"></i>
+              <span class="font-bold text-[11px]">写真を選択</span>
+              <span class="text-[9px] text-[#006B6B]/60">クリック</span>
+            </div>
+            <!-- ホバー時の案内オーバーレイ -->
+            <div class="absolute inset-0 bg-[#006B6B]/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-[10px] font-bold">
+              <i class="fa-solid fa-camera mb-0.5"></i>
+              <span>変更する</span>
+            </div>
           </div>
-          <span class="absolute bottom-0 right-0 z-10 bg-[#008080] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow">講師</span>
+          <span class="absolute bottom-0 right-0 z-10 bg-[#008080] text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow pointer-events-none">講師</span>
         </div>
         <div>
           <span class="text-xs text-[#008080] font-bold uppercase tracking-wider">Teacher's Message</span>
@@ -1005,6 +1027,44 @@
       updateCountdown();
       setInterval(updateCountdown, 1000);
     })();
+
+    // プレビュー画面でお写真を選択した際に即座に丸枠へ反映させる処理
+    function previewTeacherPhoto(input) {
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const img = document.getElementById("teacher-avatar-img");
+          const placeholder = document.getElementById("photo-placeholder");
+          if (img) {
+            img.src = e.target.result;
+            img.style.display = "block";
+          }
+          if (placeholder) {
+            placeholder.style.display = "none";
+          }
+          try {
+            localStorage.setItem("hira_sensei_avatar", e.target.result);
+          } catch (err) {}
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    // ブラウザ保存データがあれば復元
+    window.addEventListener("DOMContentLoaded", function () {
+      const savedPhoto = localStorage.getItem("hira_sensei_avatar");
+      if (savedPhoto) {
+        const img = document.getElementById("teacher-avatar-img");
+        const placeholder = document.getElementById("photo-placeholder");
+        if (img) {
+          img.src = savedPhoto;
+          img.style.display = "block";
+        }
+        if (placeholder) {
+          placeholder.style.display = "none";
+        }
+      }
+    });
   </script>
 </body>
 </html>
