@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>不登校のお母さんのための3ヶ月講座「母-Mother」｜ひら先生</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;600;700;800;900&family=Shippori+Mincho:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: {
+              DEFAULT: '#008080',
+              main: '#008080',
+              deep: '#006B6B',
+              pale: '#E8F4F2',
+              50: '#F2F8F8',
+              100: '#E8F4F2',
+              200: '#C2E3DF',
+              300: '#8AC3BD',
+              400: '#4DA29C',
+              500: '#008080',
+              600: '#006B6B',
+              700: '#005757',
+              800: '#004242',
+            },
+            ivory: {
+              DEFAULT: '#FAF8F3',
+              warm: '#FAF8F3',
+            },
+            gold: {
+              DEFAULT: '#C6A15B',
+              warm: '#C6A15B',
+              accent: '#B98232',
+              hover: '#9F6E28',
+              50: '#FAF6ED',
+              100: '#F5EDDB',
+              200: '#EADBB7',
+              500: '#C6A15B',
+              600: '#B28E46',
+            },
+            charcoal: {
+              DEFAULT: '#333333',
+              body: '#3D4141',
+            },
+            baseBg: '#FAF8F3',
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+            maru: ['"Noto Serif JP"', '"Shippori Mincho"', '"Yu Mincho"', 'serif'],
+            mincho: ['"Noto Serif JP"', '"Shippori Mincho"', '"Yu Mincho"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #FAF8F3;
+      color: #333333;
+      line-height: 1.85;
+    }
+    .soft-shadow {
+      box-shadow: 0 10px 30px -10px rgba(0, 107, 107, 0.08);
+    }
+    .gentle-border {
+      border: 1px solid rgba(0, 128, 128, 0.2);
+    }
+    .font-mincho {
+      font-feature-settings: "palt";
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-[#333333] bg-[#FAF8F3] selection:bg-[#E8F4F2]">
+
+  <!-- ヘッダーバナー ＆ カウントダウンタイマー（カウント・JavaScript制御はそのまま維持） -->
+  <div class="sticky top-0 z-50 bg-[#006B6B] text-white shadow-md border-b border-[#005757]">
+    <div class="max-w-4xl mx-auto px-3 sm:px-4 py-2 sm:py-2.5 flex flex-col sm:flex-row items-center justify-between gap-1.5 sm:gap-2 text-center sm:text-left">
+      <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-1 sm:gap-2 w-full sm:w-auto">
+        <div>
+          <span id="banner-status-badge" class="inline-block bg-white text-[#006B6B] text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full tracking-wider shadow-sm whitespace-nowrap">
+            まもなく募集開始
+          </span>
+        </div>
+        <p id="banner-period-text" class="text-[11px] min-[360px]:text-xs sm:text-sm font-bold tracking-tight sm:tracking-normal text-white whitespace-nowrap">
+          【9月23日(水) 募集開始 〜 9月30日(水) 23:59締切】
+        </p>
+      </div>
+
+      <div id="countdown-wrapper" class="flex items-center justify-center gap-1 sm:gap-1.5 text-xs sm:text-sm font-medium flex-nowrap">
+        <span id="timer-label" class="text-[#E8F4F2] mr-0.5 text-[10.5px] min-[360px]:text-xs whitespace-nowrap shrink-0">募集開始まであと</span>
+        
+        <div class="flex items-baseline bg-white/95 px-1.5 min-[360px]:px-2 py-0.5 rounded-md shadow-sm whitespace-nowrap shrink-0">
+          <span id="timer-days" class="font-bold font-mono text-xs min-[360px]:text-sm sm:text-base text-[#C6A15B]">00</span>
+          <span class="text-[9px] min-[360px]:text-[10px] ml-0.5 text-stone-500">日</span>
+        </div>
+        <span class="font-bold text-white text-xs sm:text-sm shrink-0">:</span>
+        
+        <div class="flex items-baseline bg-white/95 px-1.5 min-[360px]:px-2 py-0.5 rounded-md shadow-sm whitespace-nowrap shrink-0">
+          <span id="timer-hours" class="font-bold font-mono text-xs min-[360px]:text-sm sm:text-base text-[#006B6B]">00</span>
+          <span class="text-[9px] min-[360px]:text-[10px] ml-0.5 text-stone-500">時間</span>
+        </div>
+        <span class="font-bold text-white text-xs sm:text-sm shrink-0">:</span>
+        
+        <div class="flex items-baseline bg-white/95 px-1.5 min-[360px]:px-2 py-0.5 rounded-md shadow-sm whitespace-nowrap shrink-0">
+          <span id="timer-minutes" class="font-bold font-mono text-xs min-[360px]:text-sm sm:text-base text-[#006B6B]">00</span>
+          <span class="text-[9px] min-[360px]:text-[10px] ml-0.5 text-stone-500">分</span>
+        </div>
+        <span class="font-bold text-white text-xs sm:text-sm shrink-0">:</span>
+        
+        <div class="flex items-baseline bg-white/95 px-1.5 min-[360px]:px-2 py-0.5 rounded-md shadow-sm whitespace-nowrap shrink-0">
+          <span id="timer-seconds" class="font-bold font-mono text-xs min-[360px]:text-sm sm:text-base text-[#008080]">00</span>
+          <span class="text-[9px] min-[360px]:text-[10px] ml-0.5 text-stone-500">秒</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. ファーストビュー (対象者 → 講座の考え方 → 講座名) -->
+  <header class="relative overflow-hidden bg-gradient-to-b from-[#FAF8F3] via-white to-[#FAF8F3] pt-10 pb-16 sm:pt-16 sm:pb-24">
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-[#008080]/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-[#C6A15B]/10 rounded-full blur-2xl pointer-events-none"></div>
+
+    <div class="max-w-3xl mx-auto px-5 text-center relative z-10">
+      
+      <!-- ① 対象者 -->
+      <div class="inline-flex items-center gap-2 bg-white/95 border border-[#008080]/30 text-[#006B6B] font-bold px-4 py-1.5 rounded-full text-xs sm:text-sm mb-5 shadow-sm">
+        <i class="fa-solid fa-heart text-[#008080]"></i>
+        <span>不登校のお子さんを支えるお母さんへ</span>
+      </div>
+
+      <!-- ② メインキャッチ（世界観） -->
+      <h1 class="text-2xl min-[360px]:text-[26px] min-[390px]:text-3xl sm:text-4xl md:text-5xl font-bold font-mincho leading-tight text-[#006B6B] mb-5 text-center">
+        <span class="inline-block whitespace-nowrap">不登校を、</span><br />
+        <span class="inline-block whitespace-nowrap text-[#008080]">笑いながら越えていく。</span>
+      </h1>
+
+      <!-- ③ 講座の考え方 -->
+      <p class="text-[15px] min-[360px]:text-base min-[400px]:text-lg sm:text-xl font-bold font-mincho text-[#333333] mb-6 leading-relaxed text-center">
+        <span class="inline-block whitespace-nowrap">子どもを変えるのではなく、</span><br />
+        <span class="inline-block whitespace-nowrap text-[#006B6B]">まず、お母さん自身の心と人生を整える3ヶ月。</span>
+      </p>
+
+      <!-- ④ 講座名・概要まとめカード -->
+      <div class="p-6 sm:p-8 bg-white/95 backdrop-blur-md rounded-2xl gentle-border soft-shadow max-w-xl mx-auto mb-8 text-center border-t-4 border-t-[#008080]">
+        <span class="text-xs font-bold text-[#008080] tracking-widest block mb-1">オンライン 3ヶ月実践プログラム</span>
+        <h2 class="text-xl sm:text-2xl md:text-3xl font-bold font-mincho text-[#006B6B] mb-3">
+          「母-Mother」
+        </h2>
+        <p class="text-xs sm:text-sm text-[#3D4141] leading-relaxed font-sans">
+          毎朝の不安や葛藤を抱え込むお母さんが、本来の笑顔と安心感を取り戻すための講座です。<br class="hidden sm:inline"/>
+          月2回のグループ講義 ＋ 個別セッション（1回）で、丁寧にサポートします。
+        </p>
+      </div>
+
+      <!-- FV CTAボタン -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="#about-mother" class="w-full sm:w-auto inline-flex items-center justify-center bg-[#008080] hover:bg-[#006B6B] text-white font-bold text-base sm:text-lg px-8 py-3.5 rounded-full shadow-md shadow-[#008080]/30 hover:shadow-lg transition duration-200">
+          <span>講座の詳細を見る</span>
+          <i class="fa-solid fa-arrow-down ml-2 text-xs"></i>
+        </a>
+        <a href="#apply" class="w-full sm:w-auto inline-flex items-center justify-center bg-[#B98232] hover:bg-[#9F6E28] text-white font-bold text-base sm:text-lg px-8 py-3.5 rounded-full shadow-md shadow-[#B98232]/30 hover:shadow-lg transition duration-200">
+          <span>募集要項・申込み</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. こんなお悩みありませんか？ (悩みの共感・早めの配置) -->
+  <section id="problems" class="py-14 sm:py-20 bg-white">
+    <div class="max-w-2xl mx-auto px-5">
+      <div class="text-center mb-8">
+        <span class="text-[#008080] text-xs tracking-widest uppercase font-semibold">Check</span>
+        <h2 class="text-xl sm:text-3xl font-bold font-mincho text-[#006B6B] mt-1 leading-snug">
+          こんな風に悩んでいませんか？
+        </h2>
+        <p class="text-xs sm:text-sm text-[#333333]/70 mt-2">ひとつでも当てはまるものがあれば、あなたのための講座です</p>
+        <div class="w-12 h-1 bg-[#008080] mx-auto mt-3 rounded-full"></div>
+      </div>
+
+      <div class="space-y-3.5 mb-8">
+        <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-[#FAF8F3] border border-[#008080]/15 shadow-sm">
+          <div class="w-6 h-6 rounded-full bg-[#008080]/15 text-[#008080] flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-xs"></i>
+          </div>
+          <p class="text-sm sm:text-base text-[#333333] font-medium leading-relaxed">
+            子どもが学校に行かないことが頭から離れない
+          </p>
+        </div>
+
+        <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-[#FAF8F3] border border-[#008080]/15 shadow-sm">
+          <div class="w-6 h-6 rounded-full bg-[#008080]/15 text-[#008080] flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-xs"></i>
+          </div>
+          <p class="text-sm sm:text-base text-[#333333] font-medium leading-relaxed">
+            「このままで大丈夫？」と毎朝・毎晩不安になる
+          </p>
+        </div>
+
+        <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-[#FAF8F3] border border-[#008080]/15 shadow-sm">
+          <div class="w-6 h-6 rounded-full bg-[#008080]/15 text-[#008080] flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-xs"></i>
+          </div>
+          <p class="text-sm sm:text-base text-[#333333] font-medium leading-relaxed">
+            子どもに何と声をかければいいのか分からず、言葉に詰まる
+          </p>
+        </div>
+
+        <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-[#FAF8F3] border border-[#008080]/15 shadow-sm">
+          <div class="w-6 h-6 rounded-full bg-[#008080]/15 text-[#008080] flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-xs"></i>
+          </div>
+          <p class="text-sm sm:text-base text-[#333333] font-medium leading-relaxed">
+            何とかしてあげたいと思うほど空回りして、胸が苦しくなる
+          </p>
+        </div>
+
+        <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-[#FAF8F3] border border-[#008080]/15 shadow-sm">
+          <div class="w-6 h-6 rounded-full bg-[#008080]/15 text-[#008080] flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-xs"></i>
+          </div>
+          <p class="text-sm sm:text-base text-[#333333] font-medium leading-relaxed">
+            子どものことを優先して、自分の気持ちや時間は後回しになっている
+          </p>
+        </div>
+
+        <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-[#FAF8F3] border border-[#008080]/15 shadow-sm">
+          <div class="w-6 h-6 rounded-full bg-[#008080]/15 text-[#008080] flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-xs"></i>
+          </div>
+          <p class="text-sm sm:text-base text-[#333333] font-medium leading-relaxed">
+            周りには理解されにくく、相談できずに一人で抱え込んでいる
+          </p>
+        </div>
+
+        <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-[#FAF8F3] border border-[#008080]/15 shadow-sm">
+          <div class="w-6 h-6 rounded-full bg-[#008080]/15 text-[#008080] flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid fa-check text-xs"></i>
+          </div>
+          <p class="text-sm sm:text-base text-[#333333] font-medium leading-relaxed">
+            子どもの未来だけでなく、自分自身の人生まで止まっているように感じる
+          </p>
+        </div>
+      </div>
+
+      <!-- 共感と安心メッセージ -->
+      <div class="bg-[#E8F4F2] p-5 sm:p-7 rounded-2xl border border-[#008080]/20 text-[#006B6B] leading-relaxed">
+        <h3 class="font-bold font-mincho text-base sm:text-lg mb-2 text-center">
+          そう思ってしまうのは、あなたがとても優しいからです。
+        </h3>
+        <p class="text-xs sm:text-sm text-[#3D4141] leading-relaxed">
+          お子さんを本気で想い、大切に育ててきたからこそ、悩んだり不安になったりするのはごく自然なことです。決してあなたの育て方が間違っているわけでも、あなたが悪いわけでもありません。<br />
+          まずは「毎日よくがんばってきたね」と、ご自分を認めてあげてください。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. まず、お母さん自身を整えるという考え方 (講座の軸) -->
+  <section class="py-14 sm:py-20 bg-[#FAF8F3]">
+    <div class="max-w-2xl mx-auto px-5">
+      <div class="text-center mb-8">
+        <span class="text-[#008080] text-xs tracking-widest uppercase font-semibold">Core Concept</span>
+        <h2 class="text-xl sm:text-3xl font-bold font-mincho text-[#006B6B] mt-1 leading-snug">
+          子どもを変えるのではなく、<br />まずお母さん自身を整える。
+        </h2>
+        <div class="w-12 h-1 bg-[#008080] mx-auto mt-3 rounded-full"></div>
+      </div>
+
+      <div class="space-y-6 text-sm sm:text-base text-[#3D4141] leading-relaxed">
+        <p>
+          「どうすれば学校に行ってくれるだろう？」と必死になればなるほど、お母さんも子どもも追い詰められてしまいます。
+        </p>
+        
+        <div class="p-5 sm:p-6 bg-white rounded-2xl border-2 border-[#008080]/30 soft-shadow text-center">
+          <p class="text-xs sm:text-sm font-bold text-[#008080] mb-1">「母-Mother」の大切なコンセプト</p>
+          <p class="text-base sm:text-xl font-bold text-[#006B6B] font-mincho">
+            子どもを変えるための3ヶ月ではありません。
+          </p>
+          <p class="text-xs sm:text-sm text-[#333333]/80 mt-2">
+            お母さん自身の心と人生を整えていくためのプログラムです。
+          </p>
+        </div>
+
+        <p>
+          お母さんが心にゆとりを取り戻し、自分自身の人生に目を向けられるようになると、家庭の中の空気がふっと柔らかくなります。
+        </p>
+
+        <div class="bg-white p-5 sm:p-6 rounded-2xl border border-[#008080]/20 space-y-3 shadow-sm">
+          <h3 class="font-bold text-[#006B6B] text-sm sm:text-base border-b border-[#E8F4F2] pb-2">
+            お母さんの心が整うと、こんな変化につながっていきます
+          </h3>
+          <ul class="space-y-2 text-xs sm:text-sm text-[#333333]">
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-circle-check text-[#008080]"></i>
+              <span>子どもの言葉や行動を少しずつ信じられるようになる</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-circle-check text-[#008080]"></i>
+              <span>子どものことで頭がいっぱいになりすぎなくなる</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-circle-check text-[#008080]"></i>
+              <span>自分のやりたいことや人生にも目を向けられる</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-circle-check text-[#008080]"></i>
+              <span>焦らず、親子の未来を少しずつ落ち着いて考えられる</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 3ヶ月後、こんな変化を目指します (具体的な変化のイメージ) -->
+  <section class="py-14 sm:py-20 bg-white">
+    <div class="max-w-2xl mx-auto px-5">
+      <div class="text-center mb-8">
+        <span class="text-[#008080] text-xs tracking-widest uppercase font-semibold">Goal</span>
+        <h2 class="text-xl sm:text-3xl font-bold font-mincho text-[#006B6B] mt-1 leading-snug">
+          3ヶ月後、こんな自分を目指します
+        </h2>
+        <p class="text-xs sm:text-sm text-[#333333]/70 mt-2">無理に背伸びをするのではなく、少しずつ変化を重ねていきます</p>
+        <div class="w-12 h-1 bg-[#008080] mx-auto mt-3 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-5 bg-[#FAF8F3] rounded-2xl border border-[#008080]/15 shadow-sm">
+          <div class="w-8 h-8 rounded-lg bg-[#008080] text-white flex items-center justify-center font-bold text-sm mb-3">
+            01
+          </div>
+          <h3 class="font-bold text-[#006B6B] text-sm sm:text-base mb-1">
+            感情に振り回されすぎなくなる
+          </h3>
+          <p class="text-xs sm:text-sm text-[#3D4141] leading-relaxed">
+            子どもの一つひとつの言動に一喜一憂せず、落ち着いて話を聞けるようになります。
+          </p>
+        </div>
+
+        <div class="p-5 bg-[#FAF8F3] rounded-2xl border border-[#008080]/15 shadow-sm">
+          <div class="w-8 h-8 rounded-lg bg-[#008080] text-white flex items-center justify-center font-bold text-sm mb-3">
+            02
+          </div>
+          <h3 class="font-bold text-[#006B6B] text-sm sm:text-base mb-1">
+            「学校に行かせなきゃ」の焦りが和らぐ
+          </h3>
+          <p class="text-xs sm:text-sm text-[#3D4141] leading-relaxed">
+            世間の「あたりまえ」から少し離れ、お子さんとご自身のペースを大切にできるようになります。
+          </p>
+        </div>
+
+        <div class="p-5 bg-[#FAF8F3] rounded-2xl border border-[#008080]/15 shadow-sm">
+          <div class="w-8 h-8 rounded-lg bg-[#008080] text-white flex items-center justify-center font-bold text-sm mb-3">
+            03
+          </div>
+          <h3 class="font-bold text-[#006B6B] text-sm sm:text-base mb-1">
+            自分の時間や趣味を楽しめる
+          </h3>
+          <p class="text-xs sm:text-sm text-[#3D4141] leading-relaxed">
+            子どものことだけでなく、「自分は何をしたいか」に目を向けられるようになります。
+          </p>
+        </div>
+
+        <div class="p-5 bg-[#FAF8F3] rounded-2xl border border-[#008080]/15 shadow-sm">
+          <div class="w-8 h-8 rounded-lg bg-[#008080] text-white flex items-center justify-center font-bold text-sm mb-3">
+            04
+          </div>
+          <h3 class="font-bold text-[#006B6B] text-sm sm:text-base mb-1">
+            子どもの可能性を信じられる
+          </h3>
+          <p class="text-xs sm:text-sm text-[#3D4141] leading-relaxed">
+            「この子なら大丈夫」と心から思えるようになり、あたたかく見守る安心感が生まれます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 「母-Mother」とは？ (講座の早め概要説明 ＆ 早期料金案内) -->
+  <section id="about-mother" class="py-14 sm:py-20 bg-[#E8F4F2]">
+    <div class="max-w-3xl mx-auto px-5">
+      <div class="text-center mb-8">
+        <span class="text-[#008080] text-xs tracking-widest uppercase font-semibold">Overview</span>
+        <h2 class="text-xl sm:text-3xl font-bold font-mincho text-[#006B6B] mt-1 leading-snug">
+          「母-Mother」は、こんな3ヶ月です
+        </h2>
+        <p class="text-xs sm:text-sm text-[#333333]/70 mt-2">安心できる環境で、無理なく自分のペースで学べます</p>
+        <div class="w-12 h-1 bg-[#008080] mx-auto mt-3 rounded-full"></div>
+      </div>
+
+      <!-- 概要カード -->
+      <div class="bg-white rounded-3xl p-6 sm:p-8 gentle-border soft-shadow mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-4">
+            <div>
+              <span class="text-xs font-bold text-[#008080] uppercase tracking-wider">対象者</span>
+              <p class="text-sm sm:text-base font-bold text-[#333333] mt-0.5">
+                不登校・登校しぶりのお子さんを支えるお母さん
+              </p>
+              <p class="text-xs text-[#3D4141]/80 mt-1">※お子さんの年齢（小・中・高）や不登校の期間は問いません。</p>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-[#008080] uppercase tracking-wider">目的</span>
+              <p class="text-sm sm:text-base font-bold text-[#333333] mt-0.5">
+                お母さん自身の心と人生を整え、笑顔と安心感を取り戻すこと
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <span class="text-xs font-bold text-[#008080] uppercase tracking-wider">受講形式</span>
+              <p class="text-sm sm:text-base font-bold text-[#333333] mt-0.5">
+                オンライン（Zoom）/ 月2回（各90分）
+              </p>
+              <p class="text-xs text-[#3D4141]/80 mt-1">※全5STEP＋番外編のカリキュラムで進みます。</p>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-[#008080] uppercase tracking-wider">サポート内容</span>
+              <p class="text-sm sm:text-base font-bold text-[#333333] mt-0.5">
+                グループ講義 ＋ 個別セッション（1回）＋ アーカイブ配信
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 早期料金表示（何が含まれているかとセットで提示） -->
+        <div class="mt-8 pt-6 border-t border-[#E8F4F2] bg-[#FAF8F3] p-5 rounded-2xl">
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div>
+              <span class="bg-[#008080] text-white text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full inline-block mb-1">
+                受講費用（全額表示）
+              </span>
+              <h3 class="font-bold text-[#006B6B] text-sm sm:text-base">
+                3ヶ月実践受講料（サポート一式含む）
+              </h3>
+              <p class="text-xs text-[#3D4141]">※講義全6回・個別セッション1回・録画アーカイブ視聴付き</p>
+            </div>
+            <div class="text-center sm:text-right">
+              <span class="text-xs line-through text-stone-400 block">通常 99,000円</span>
+              <span class="text-2xl sm:text-3xl font-bold text-[#008080]">
+                66,000<span class="text-sm font-bold text-[#008080]"> 円（税込）</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 3ヶ月・5STEPの内容 (カリキュラムの可視化) -->
+  <section class="py-14 sm:py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-5">
+      <div class="text-center mb-8">
+        <span class="text-[#008080] text-xs tracking-widest uppercase font-semibold">Curriculum</span>
+        <h2 class="text-xl sm:text-3xl font-bold font-mincho text-[#006B6B] mt-1 leading-snug">
+          3ヶ月で歩む 5STEP＋番外編の内容
+        </h2>
+        <p class="text-xs sm:text-sm text-[#333333]/70 mt-2">何を学び、どんな時間にするのかがひと目で分かります</p>
+        <div class="w-12 h-1 bg-[#008080] mx-auto mt-3 rounded-full"></div>
+      </div>
+
+      <div class="space-y-4">
+        <!-- STEP 1 -->
+        <div class="flex items-start gap-3.5 sm:gap-4 p-5 rounded-2xl bg-[#FAF8F3] border border-[#008080]/20 shadow-sm">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#C6A15B] text-white font-bold flex items-center justify-center shrink-0 shadow-sm text-sm sm:text-base">
+            01
+          </div>
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center gap-2 mb-0.5">
+              <span class="text-[11px] font-bold text-[#C6A15B]">STEP 01</span>
+              <span class="text-[10px] bg-[#E8F4F2] text-[#006B6B] px-2 py-0.5 rounded font-medium">自分の気持ちを知る</span>
+            </div>
+            <h3 class="font-bold text-[#006B6B] font-mincho text-base sm:text-lg">
+              LOVE LETTER（過去の自分と向き合う時間）
+            </h3>
+            <p class="text-xs sm:text-sm text-[#3D4141] mt-1 leading-relaxed">
+              これまでの自分と向き合い、「私なら大丈夫」「この子なら大丈夫」という愛・自信・誇りの土台を取り戻します。
+            </p>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="flex items-start gap-3.5 sm:gap-4 p-5 rounded-2xl bg-[#FAF8F3] border border-[#008080]/20 shadow-sm">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#C6A15B] text-white font-bold flex items-center justify-center shrink-0 shadow-sm text-sm sm:text-base">
+            02
+          </div>
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center gap-2 mb-0.5">
+              <span class="text-[11px] font-bold text-[#C6A15B]">STEP 02</span>
+              <span class="text-[10px] bg-[#E8F4F2] text-[#006B6B] px-2 py-0.5 rounded font-medium">これまでの自分を振り返る</span>
+            </div>
+            <h3 class="font-bold text-[#006B6B] font-mincho text-base sm:text-lg">
+              CHANGE（思い込みの見つめ直し）
+            </h3>
+            <p class="text-xs sm:text-sm text-[#3D4141] mt-1 leading-relaxed">
+              「学校には行くべき」といった当たり前や思い込みを解きほぐし、自由な選択肢を広げていきます。
+            </p>
+          </div>
+        </div>
+
+        <!-- 番外編 -->
+        <div class="flex items-start gap-3.5 sm:gap-4 p-5 rounded-2xl bg-[#FAF8F3] border border-[#008080]/20 shadow-sm">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#008080] text-white font-bold flex items-center justify-center shrink-0 shadow-sm text-xs sm:text-sm">
+            番外
+          </div>
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center gap-2 mb-0.5">
+              <span class="text-[11px] font-bold text-[#008080]">EXTRA</span>
+              <span class="text-[10px] bg-[#E8F4F2] text-[#006B6B] px-2 py-0.5 rounded font-medium">学校と社会を知る</span>
+            </div>
+            <h3 class="font-bold text-[#006B6B] font-mincho text-base sm:text-lg">
+              番外編ステップ（学校教育の歴史）
+            </h3>
+            <p class="text-xs sm:text-sm text-[#3D4141] mt-1 leading-relaxed">
+              わたしたちを育んできた学校教育のこれまでとこれからを考え、あたりまえを疑います。
+            </p>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="flex items-start gap-3.5 sm:gap-4 p-5 rounded-2xl bg-[#FAF8F3] border border-[#008080]/20 shadow-sm">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#C6A15B] text-white font-bold flex items-center justify-center shrink-0 shadow-sm text-sm sm:text-base">
+            03
+          </div>
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center gap-2 mb-0.5">
+              <span class="text-[11px] font-bold text-[#C6A15B]">STEP 03</span>
+              <span class="text-[10px] bg-[#E8F4F2] text-[#006B6B] px-2 py-0.5 rounded font-medium">子どもとの関係を見つめる</span>
+            </div>
+            <h3 class="font-bold text-[#006B6B] font-mincho text-base sm:text-lg">
+              HEART（愛と感謝を取り戻す）
+            </h3>
+            <p class="text-xs sm:text-sm text-[#3D4141] mt-1 leading-relaxed">
+              子どもを変えようとするのを手放し、愛と感謝を軸に親子のつながりをあたたかく再構築します。
+            </p>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="flex items-start gap-3.5 sm:gap-4 p-5 rounded-2xl bg-[#FAF8F3] border border-[#008080]/20 shadow-sm">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#C6A15B] text-white font-bold flex items-center justify-center shrink-0 shadow-sm text-sm sm:text-base">
+            04
+          </div>
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center gap-2 mb-0.5">
+              <span class="text-[11px] font-bold text-[#C6A15B]">STEP 04</span>
+              <span class="text-[10px] bg-[#E8F4F2] text-[#006B6B] px-2 py-0.5 rounded font-medium">自分のこれからを考える</span>
+            </div>
+            <h3 class="font-bold text-[#006B6B] font-mincho text-base sm:text-lg">
+              MY AXIS（自分の軸をつくる）
+            </h3>
+            <p class="text-xs sm:text-sm text-[#3D4141] mt-1 leading-relaxed">
+              「どんな親でありたいか」「どんな人間として生きたいか」、誰の正解でもない自分だけの答えを見つけます。
+            </p>
+          </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="flex items-start gap-3.5 sm:gap-4 p-5 rounded-2xl bg-[#FAF8F3] border border-[#008080]/20 shadow-sm">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#C6A15B] text-white font-bold flex items-center justify-center shrink-0 shadow-sm text-sm sm:text-base">
+            05
+          </div>
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center gap-2 mb-0.5">
+              <span class="text-[11px] font-bold text-[#C6A15B]">STEP 05</span>
+              <span class="text-[10px] bg-[#E8F4F2] text-[#006B6B] px-2 py-0.5 rounded font-medium">これからの親子の未来を描く</span>
+            </div>
+            <h3 class="font-bold text-[#006B6B] font-mincho text-base sm:text-lg">
+              ALIVE（これからの人生を生きる）
+            </h3>
+            <p class="text-xs sm:text-sm text-[#3D4141] mt-1 leading-relaxed">
+              子どもの人生に同化するのをやめ、あなた自身の人生をもう一度動かしていきます。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. サポート内容を具体的にする -->
+  <section class="py-14 sm:py-20 bg-[#FAF8F3]">
+    <div class="max-w-3xl mx-auto px-5">
+      <div class="text-center mb-8">
+        <span class="text-[#008080] text-xs tracking-widest uppercase font-semibold">Support</span>
+        <h2 class="text-xl sm:text-3xl font-bold font-mincho text-[#006B6B] mt-1 leading-snug">
+          安心して受講できる4つのサポート
+        </h2>
+        <p class="text-xs sm:text-sm text-[#333333]/70 mt-2">何が含まれているのか明確にお伝えします</p>
+        <div class="w-12 h-1 bg-[#008080] mx-auto mt-3 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- 1 -->
+        <div class="bg-white p-5 rounded-2xl border border-[#008080]/15 soft-shadow">
+          <div class="flex items-center gap-2 text-[#008080] font-bold text-sm mb-2">
+            <i class="fa-solid fa-video text-base"></i>
+            <span>① 月2回・各90分のオンライン講義</span>
+          </div>
+          <p class="text-xs sm:text-sm text-[#3D4141] leading-relaxed">
+            ご自宅からZoomで気軽に参加いただけます。少人数のあたたかい雰囲気で進むため、初めての方も安心です。
+          </p>
+        </div>
+
+        <!-- 2 -->
+        <div class="bg-white p-5 rounded-2xl border border-[#C6A15B]/40 soft-shadow">
+          <div class="flex items-center gap-2 text-[#C6A15B] font-bold text-sm mb-2">
+            <i class="fa-solid fa-gift text-base"></i>
+            <span>② 個別セッション（1回プレゼント）</span>
+          </div>
+          <p class="text-xs sm:text-sm text-[#3D4141] leading-relaxed">
+            ひら先生と1対1でじっくりお話しできる特別な機会です。全体の講義では聞きにくい相談も個別に伺います。
+          </p>
+        </div>
+
+        <!-- 3 -->
+        <div class="bg-white p-5 rounded-2xl border border-[#008080]/15 soft-shadow">
+          <div class="flex items-center gap-2 text-[#008080] font-bold text-sm mb-2">
+            <i class="fa-solid fa-circle-play text-base"></i>
+            <span>③ 見逃しアーカイブ録画配信</span>
+          </div>
+          <p class="text-xs sm:text-sm text-[#3D4141] leading-relaxed">
+            体調不良や急な用事で欠席された場合も安心。受講期間中は動画アーカイブを何度でも復習・視聴していただけます。
+          </p>
+        </div>
+
+        <!-- 4 -->
+        <div class="bg-white p-5 rounded-2xl border border-[#008080]/15 soft-shadow">
+          <div class="flex items-center gap-2 text-[#008080] font-bold text-sm mb-2">
+            <i class="fa-solid fa-user-shield text-base"></i>
+            <span>④ 安心して話せる場づくり</span>
+          </div>
+          <p class="text-xs sm:text-sm text-[#3D4141] leading-relaxed">
+            お互いに顔が見えるカメラONでのご参加をお願いすることで、参加者全員が守られた空間で素直な気持ちを共有できます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. 安心して参加していただくために (参加条件・顔出しの説明) -->
+  <section class="py-12 sm:py-16 bg-white border-y border-[#008080]/15">
+    <div class="max-w-2xl mx-auto px-5">
+      <div class="bg-[#E8F4F2] p-6 sm:p-8 rounded-3xl border border-[#008080]/20">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-8 h-8 rounded-full bg-[#008080] text-white flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-[#008080] fa-camera text-sm"></i>
+          </div>
+          <h3 class="font-bold text-[#006B6B] text-base sm:text-lg font-mincho">
+            安心してご参加いただくためのお願い（カメラONについて）
+          </h3>
+        </div>
+        <p class="text-xs sm:text-sm text-[#3D4141] leading-relaxed mb-3">
+          「母-Mother」では、受講されるみなさまが安全に、そして心を開いて本音を語り合えるあたたかい場をつくるため、<strong class="text-[#006B6B]">お顔を出して（カメラON）でのご参加</strong>をお願いしております。
+        </p>
+        <p class="text-xs sm:text-sm text-[#3D4141] leading-relaxed">
+          誰が参加しているか分からない状態ではなく、お互いの笑顔や表情が見えることで「一人じゃないんだ」という深い安心感が生まれます。お部屋の様子が気になる方はバーチャル背景等をご使用いただき、リラックスしたお姿でご参加ください。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. ひら先生について ＆ この講座をつくった理由 -->
+  <section class="py-14 sm:py-20 bg-[#FAF8F3]">
+    <div class="max-w-3xl mx-auto px-5">
+      <div class="flex flex-col sm:flex-row items-center sm:items-center gap-5 sm:gap-6 mb-8 text-center sm:text-left">
+        <div class="relative shrink-0">
+          <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden ring-4 ring-[#008080]/20 shadow-lg bg-white relative">
+            <img src="hirasensei.jpg" alt="伴走者 ひら先生" class="w-full h-full object-cover">
+          </div>
+          <span class="absolute bottom-0 right-0 z-10 bg-[#008080] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow">講師</span>
+        </div>
+        <div>
+          <span class="text-xs text-[#008080] font-bold uppercase tracking-wider">Teacher Profile</span>
+          <h2 class="text-xl sm:text-3xl font-bold font-mincho text-[#006B6B]">
+            不登校は、人生をあきらめる理由にはならない
+          </h2>
+          <p class="text-xs sm:text-sm text-[#333333]/70 mt-1">伴走者：ひら先生</p>
+        </div>
+      </div>
+
+      <div class="space-y-5 text-sm sm:text-base text-[#3D4141] leading-relaxed bg-white p-6 sm:p-8 rounded-3xl border border-[#008080]/20 soft-shadow">
+        <h3 class="font-bold text-[#006B6B] text-base sm:text-lg border-b border-[#E8F4F2] pb-2">
+          なぜ、僕が「お母さん自身」に目を向ける講座をつくったのか
+        </h3>
+        <p>
+          はじめまして、ひら先生です。
+        </p>
+        <p>
+          これまで多くの不登校のお子さん、そしてその親御さんと向き合ってきました。<br />
+          子どもが学校に行けなくなったとき、まるで目の前が真っ暗になり「自分のせいでこの子の人生が終わってしまった」とご自分を責め続けるお母さんを、何人も見てきました。
+        </p>
+        <p>
+          しかし、必死に子どもを変えようとすればするほど、お母さん自身の心はすり減り、家庭内の緊張は高まってしまいます。
+        </p>
+        <div class="bg-[#E8F4F2] p-4 rounded-xl border-l-4 border-[#008080] text-[#006B6B] font-bold font-mincho text-sm sm:text-base">
+          「不登校なんかで人生は終わりません。<br />
+          いやむしろ、ここから新しい人生が始まるのだと、僕は思うのです。」
+        </div>
+        <p>
+          子どもが幸せになる道は、学校に行くことだけではありません。<br />
+          お母さんが立ち止まり、自分の人生を取り戻して笑顔を取り戻したとき、そのあたたかい背中を見て子どもは自らの足で歩み始めます。
+        </p>
+        <p class="font-bold text-[#006B6B]">
+          お母さんが自分自身の人生の主役に戻る。そのための伴走者として、僕は「母-Mother」を立ち上げました。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. 料金・募集要項 (詳細案内 ＆ 最終申込エリア) -->
+  <section id="apply" class="py-14 sm:py-20 bg-[#FAF8F3] scroll-mt-16">
+    <div class="max-w-3xl mx-auto px-5">
+      <div class="text-center mb-8">
+        <span class="text-[#008080] text-xs tracking-widest uppercase font-semibold">Information & Entry</span>
+        <h2 class="text-2xl sm:text-3xl font-bold font-mincho text-[#006B6B] mt-1">
+          募集要項・受講申込み
+        </h2>
+        <p class="text-xs sm:text-sm text-[#333333]/80 mt-1">「母-Mother」不登校を笑いながら越えていく〜子どもを支える3ヶ月〜</p>
+        <div class="w-12 h-1 bg-[#008080] mx-auto mt-3 rounded-full"></div>
+      </div>
+
+      <div class="bg-white rounded-3xl p-5 sm:p-10 border-2 border-[#008080]/20 soft-shadow">
+        <dl class="divide-y divide-[#008080]/15 text-xs sm:text-base">
+          <div class="py-3.5 sm:py-4 sm:grid sm:grid-cols-3 sm:gap-4">
+            <dt class="font-bold text-[#006B6B]">講座名</dt>
+            <dd class="mt-0.5 sm:mt-0 text-[#333333] sm:col-span-2 font-medium">
+              3ヶ月実践講座「母-Mother」
+            </dd>
+          </div>
+          <div class="py-3.5 sm:py-4 sm:grid sm:grid-cols-3 sm:gap-4">
+            <dt class="font-bold text-[#006B6B]">開催期間</dt>
+            <dd class="mt-0.5 sm:mt-0 text-[#333333] sm:col-span-2 font-medium">
+              2026年10月 〜 12月（3ヶ月間）
+            </dd>
+          </div>
+          <div class="py-3.5 sm:py-4 sm:grid sm:grid-cols-3 sm:gap-4">
+            <dt class="font-bold text-[#006B6B]">形式・頻度</dt>
+            <dd class="mt-0.5 sm:mt-0 text-[#333333] sm:col-span-2">
+              月2回（各90分） 全5ステップ＋番外編（オンラインZoom開催）
+            </dd>
+          </div>
+          <div class="py-3.5 sm:py-4 sm:grid sm:grid-cols-3 sm:gap-4">
+            <dt class="font-bold text-[#006B6B]">募集期間</dt>
+            <dd class="mt-0.5 sm:mt-0 text-[#333333] sm:col-span-2">
+              <span class="text-[#008080] font-bold">2026年9月23日(水) 〜 9月30日(水) 23:59</span>
+              <span class="text-xs text-[#333333]/80 block">（7日間限定募集）</span>
+            </dd>
+          </div>
+          <div class="py-3.5 sm:py-4 sm:grid sm:grid-cols-3 sm:gap-4">
+            <dt class="font-bold text-[#006B6B]">対象</dt>
+            <dd class="mt-0.5 sm:mt-0 text-[#333333] sm:col-span-2">
+              不登校・登校しぶりのお子さんを支えるお母さん（保護者の方）
+            </dd>
+          </div>
+          <div class="py-3.5 sm:py-4 sm:grid sm:grid-cols-3 sm:gap-4 items-center">
+            <dt class="font-bold text-[#C6A15B] flex items-center gap-1.5">
+              <i class="fa-solid fa-gift"></i> 特別特典
+            </dt>
+            <dd class="mt-0.5 sm:mt-0 text-[#C6A15B] sm:col-span-2 font-bold">
+              ひら先生との個別セッション 1回プレゼント
+            </dd>
+          </div>
+          <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 items-center">
+            <dt class="font-bold text-[#006B6B]">受講料金</dt>
+            <dd class="mt-0.5 sm:mt-0 sm:col-span-2">
+              <div class="flex items-baseline gap-3 flex-wrap">
+                <span class="text-xs sm:text-sm line-through text-stone-400">通常 99,000円</span>
+                <div class="text-2xl sm:text-3xl font-bold text-[#008080]">
+                  66,000<span class="text-sm font-bold text-[#008080]"> 円（税込）</span>
+                </div>
+              </div>
+            </dd>
+          </div>
+        </dl>
+
+        <!-- メイン申込ボタン (GOLD/ACCENT CTA #B98232) -->
+        <div class="mt-8 text-center">
+          <div id="main-cta-active">
+            <a href="https://mosh.jp/products/1b762743-7867-48ab-8e98-5be7d9ad223d?openExternalBrowser=1" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex flex-col items-center justify-center bg-[#B98232] hover:bg-[#9F6E28] text-white font-bold text-lg sm:text-xl px-12 py-4 rounded-full shadow-md shadow-[#B98232]/30 hover:shadow-lg transition duration-200 text-center leading-tight">
+              <span>「母-Mother」に申し込む</span>
+              <span class="text-xs font-normal mt-1 text-white/90">※安心の決済システム（MOSH）へ移動します</span>
+            </a>
+            <p class="text-xs text-[#333333]/70 mt-3">
+              ※少人数制のため、定員に達し次第受付を終了する場合がございます。
+            </p>
+          </div>
+
+          <!-- 終了時表示（JS連動） -->
+          <div id="main-cta-closed" class="hidden">
+            <div class="inline-block max-w-md w-full bg-white border-2 border-[#008080]/30 rounded-2xl p-6 text-center shadow-md">
+              <span class="inline-block bg-stone-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
+                受付終了
+              </span>
+              <p class="font-mincho font-bold text-lg text-[#006B6B] mb-2">
+                今回の募集は終了いたしました
+              </p>
+              <p class="text-xs text-[#3D4141] leading-relaxed">
+                たくさんのご応募をいただき誠にありがとうございました。<br />
+                次回の募集案内は公式LINE等でお知らせいたします。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. よくある質問 (FAQ) -->
+  <section class="py-14 sm:py-20 bg-[#E8F4F2]">
+    <div class="max-w-2xl mx-auto px-5">
+      <div class="text-center mb-8">
+        <span class="text-[#008080] text-xs tracking-widest uppercase font-semibold">Q&A</span>
+        <h2 class="text-2xl sm:text-3xl font-bold font-sans text-[#006B6B] mt-1">よくある質問</h2>
+        <div class="w-12 h-1 bg-[#008080] mx-auto mt-3 rounded-full"></div>
+      </div>
+
+      <div class="space-y-3.5">
+        <!-- Q1 -->
+        <details class="group bg-white rounded-2xl gentle-border soft-shadow transition-all duration-200">
+          <summary class="flex items-center justify-between p-5 cursor-pointer list-none select-none">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#008080] text-white font-bold text-xs shrink-0">Q</span>
+              <h3 class="font-bold text-[#006B6B] text-sm sm:text-base">
+                顔出し（カメラON）は必要ですか？
+              </h3>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-[#E8F4F2] flex items-center justify-center shrink-0 ml-2 text-stone-400 group-open:bg-[#008080]/15 group-open:text-[#008080] transition-colors">
+              <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 group-open:rotate-180"></i>
+            </div>
+          </summary>
+          <div class="px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-[#3D4141] leading-relaxed border-t border-[#E8F4F2] pt-4 flex items-start gap-2.5">
+            <span class="font-bold text-[#008080] shrink-0">A.</span>
+            <p>
+              <strong class="text-[#006B6B]">はい、お顔を出してのご参加をお願いしております。</strong><br />
+              お互いの表情や雰囲気が見えることで、参加者みなさまが安心・安全に本音を共有できるあたたかい場をつくりたいためです。リラックスした私服でご参加ください。
+            </p>
+          </div>
+        </details>
+
+        <!-- Q2 -->
+        <details class="group bg-white rounded-2xl gentle-border soft-shadow transition-all duration-200">
+          <summary class="flex items-center justify-between p-5 cursor-pointer list-none select-none">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#008080] text-white font-bold text-xs shrink-0">Q</span>
+              <h3 class="font-bold text-[#006B6B] text-sm sm:text-base">
+                子ども本人の参加は必要ですか？
+              </h3>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-[#E8F4F2] flex items-center justify-center shrink-0 ml-2 text-stone-400 group-open:bg-[#008080]/15 group-open:text-[#008080] transition-colors">
+              <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 group-open:rotate-180"></i>
+            </div>
+          </summary>
+          <div class="px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-[#3D4141] leading-relaxed border-t border-[#E8F4F2] pt-4 flex items-start gap-2.5">
+            <span class="font-bold text-[#008080] shrink-0">A.</span>
+            <p>
+              <strong class="text-[#006B6B]">いいえ、お子さんの参加は不要です。</strong><br />
+              「母-Mother」はお母さんご自身の心と人生を整えるための講座ですので、お母さんおひとりでご参加いただけます。
+            </p>
+          </div>
+        </details>
+
+        <!-- Q3 -->
+        <details class="group bg-white rounded-2xl gentle-border soft-shadow transition-all duration-200">
+          <summary class="flex items-center justify-between p-5 cursor-pointer list-none select-none">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#008080] text-white font-bold text-xs shrink-0">Q</span>
+              <h3 class="font-bold text-[#006B6B] text-sm sm:text-base">
+                見逃し配信（アーカイブ録画）はありますか？
+              </h3>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-[#E8F4F2] flex items-center justify-center shrink-0 ml-2 text-stone-400 group-open:bg-[#008080]/15 group-open:text-[#008080] transition-colors">
+              <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 group-open:rotate-180"></i>
+            </div>
+          </summary>
+          <div class="px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-[#3D4141] leading-relaxed border-t border-[#E8F4F2] pt-4 flex items-start gap-2.5">
+            <span class="font-bold text-[#008080] shrink-0">A.</span>
+            <p>
+              <strong class="text-[#006B6B]">はい、アーカイブ録画配信をご用意しております。</strong><br />
+              リアルタイムで参加できなかった回がある場合や、後から復習したい場合も安心です。受講期間中はいつでもご視聴いただけます。
+            </p>
+          </div>
+        </details>
+
+        <!-- Q4 -->
+        <details class="group bg-white rounded-2xl gentle-border soft-shadow transition-all duration-200">
+          <summary class="flex items-center justify-between p-5 cursor-pointer list-none select-none">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#008080] text-white font-bold text-xs shrink-0">Q</span>
+              <h3 class="font-bold text-[#006B6B] text-sm sm:text-base">
+                子どもの年齢や不登校の期間に関係なく参加できますか？
+              </h3>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-[#E8F4F2] flex items-center justify-center shrink-0 ml-2 text-stone-400 group-open:bg-[#008080]/15 group-open:text-[#008080] transition-colors">
+              <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 group-open:rotate-180"></i>
+            </div>
+          </summary>
+          <div class="px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-[#3D4141] leading-relaxed border-t border-[#E8F4F2] pt-4 flex items-start gap-2.5">
+            <span class="font-bold text-[#008080] shrink-0">A.</span>
+            <p>
+              <strong class="text-[#006B6B]">はい、どなたでもご参加いただけます。</strong><br />
+              小学生、中学生、高校生のお母さん、また行き渋りの初期段階から長期間の不登校まで、あらゆる状況のお母さんを歓迎します。
+            </p>
+          </div>
+        </details>
+
+        <!-- Q5 -->
+        <details class="group bg-white rounded-2xl gentle-border soft-shadow transition-all duration-200">
+          <summary class="flex items-center justify-between p-5 cursor-pointer list-none select-none">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#008080] text-white font-bold text-xs shrink-0">Q</span>
+              <h3 class="font-bold text-[#006B6B] text-sm sm:text-base">
+                追加費用がかかることはありますか？
+              </h3>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-[#E8F4F2] flex items-center justify-center shrink-0 ml-2 text-stone-400 group-open:bg-[#008080]/15 group-open:text-[#008080] transition-colors">
+              <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 group-open:rotate-180"></i>
+            </div>
+          </summary>
+          <div class="px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-[#3D4141] leading-relaxed border-t border-[#E8F4F2] pt-4 flex items-start gap-2.5">
+            <span class="font-bold text-[#008080] shrink-0">A.</span>
+            <p>
+              <strong class="text-[#006B6B]">いいえ、表示料金以外の追加費用は一切ございません。</strong><br />
+              受講料66,000円（税込）の中に、月2回の全講義、個別セッション1回、アーカイブ配信がすべて含まれています。
+            </p>
+          </div>
+        </details>
+
+        <!-- Q6 -->
+        <details class="group bg-white rounded-2xl gentle-border soft-shadow transition-all duration-200">
+          <summary class="flex items-center justify-between p-5 cursor-pointer list-none select-none">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#008080] text-white font-bold text-xs shrink-0">Q</span>
+              <h3 class="font-bold text-[#006B6B] text-sm sm:text-base">
+                申込み後の流れはどうなりますか？
+              </h3>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-[#E8F4F2] flex items-center justify-center shrink-0 ml-2 text-stone-400 group-open:bg-[#008080]/15 group-open:text-[#008080] transition-colors">
+              <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 group-open:rotate-180"></i>
+            </div>
+          </summary>
+          <div class="px-5 pb-5 sm:px-6 sm:pb-6 text-xs sm:text-sm text-[#3D4141] leading-relaxed border-t border-[#E8F4F2] pt-4 flex items-start gap-2.5">
+            <span class="font-bold text-[#008080] shrink-0">A.</span>
+            <p>
+              お申込み完了後、ご登録いただいたメールアドレス宛に自動返信メールと受講案内が届きます。<br />
+              初回講義の日程案内やZoomリンク、個別セッションのご案内を順次お送りいたします。
+            </p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. 最終CTA ＆ メッセージ -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-2xl mx-auto px-5 text-center">
+      <h2 class="text-xl sm:text-3xl font-bold font-mincho text-[#006B6B] leading-snug mb-4">
+        子どものためだけに生きてきた毎日から、<br />
+        あなた自身の人生を取り戻す3ヶ月へ
+      </h2>
+      <p class="text-xs sm:text-base text-[#3D4141] leading-relaxed mb-8">
+        もう、ひとりで抱え込まなくて大丈夫です。<br />
+        お母さんが笑顔を取り戻す最初の一歩を、僕と一緒に始めてみませんか？
+      </p>
+
+      <div id="final-cta-active">
+        <a href="https://mosh.jp/products/1b762743-7867-48ab-8e98-5be7d9ad223d?openExternalBrowser=1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-[#B98232] hover:bg-[#9F6E28] text-white font-bold text-base sm:text-xl px-10 py-4 rounded-full shadow-lg shadow-[#B98232]/30 hover:shadow-xl transition duration-200 w-full sm:w-auto">
+          <span>「母-Mother」に申し込む</span>
+          <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="bg-[#006B6B] text-[#FAF8F3]/90 py-8 text-center text-xs border-t border-[#005757]">
+    <div class="max-w-2xl mx-auto px-5 space-y-2">
+      <p class="font-mincho font-bold text-white text-sm">
+        「母-Mother」不登校のお母さんのための3ヶ月講座
+      </p>
+      <p class="text-[#E8F4F2]/70">&copy; 2026 ひら先生 All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- スマホ画面下部 追従（固定）申込ボタン -->
+  <div id="floating-cta" class="fixed bottom-0 inset-x-0 w-full z-40 transition-all duration-300 transform translate-y-full opacity-0 pointer-events-none sm:hidden" style="left: 0; right: 0; width: 100%;">
+    <div class="w-full bg-white/95 backdrop-blur-md border-t border-[#008080]/20 shadow-[0_-4px_20px_rgba(0,107,107,0.12)] px-4 pt-3 pb-7 text-center" style="width: 100%; padding-bottom: max(28px, calc(env(safe-area-inset-bottom) + 16px)); text-align: center;">
+      <div style="width: 100%; max-width: 310px; margin-left: auto; margin-right: auto; display: block;">
+        <a href="https://mosh.jp/products/1b762743-7867-48ab-8e98-5be7d9ad223d?openExternalBrowser=1" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 bg-[#B98232] hover:bg-[#9F6E28] active:scale-[0.98] text-white font-bold text-[14.5px] min-[360px]:text-[15px] py-3 px-6 rounded-full shadow-md shadow-[#B98232]/30 transition duration-150 text-center" style="width: 100%; box-sizing: border-box;">
+          <span>「母-Mother」に申し込む</span>
+          <i class="fa-solid fa-chevron-right text-xs"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- スクリプト (タイマー ＆ ボタン制御) -->
+  <script>
+    const FORCE_CLOSED = false;
+    const currentYear = new Date().getFullYear();
+    const startDate = new Date(currentYear, 8, 23, 0, 0, 0, 0).getTime();
+    const endDate = new Date(currentYear, 8, 30, 23, 59, 59, 999).getTime();
+
+    // 追従ボタン制御
+    (function () {
+      const floatingCta = document.getElementById("floating-cta");
+      const applySection = document.getElementById("apply");
+
+      function updateFloatingCta() {
+        if (!floatingCta) return;
+        const now = new Date().getTime();
+        const isClosed = FORCE_CLOSED || (now > endDate);
+
+        if (isClosed) {
+          floatingCta.classList.add("translate-y-full", "opacity-0", "pointer-events-none");
+          floatingCta.classList.remove("translate-y-0", "opacity-100");
+          floatingCta.style.display = "none";
+          return;
+        } else {
+          floatingCta.style.display = "";
+        }
+
+        const scrollY = window.scrollY || window.pageYOffset;
+        let inApplyZone = false;
+        if (applySection) {
+          const rect = applySection.getBoundingClientRect();
+          if (rect.top <= window.innerHeight * 0.75) {
+            inApplyZone = true;
+          }
+        }
+
+        if (scrollY > 280 && !inApplyZone) {
+          floatingCta.classList.remove("translate-y-full", "opacity-0", "pointer-events-none");
+          floatingCta.classList.add("translate-y-0", "opacity-100");
+        } else {
+          floatingCta.classList.add("translate-y-full", "opacity-0", "pointer-events-none");
+          floatingCta.classList.remove("translate-y-0", "opacity-100");
+        }
+      }
+
+      window.addEventListener("scroll", updateFloatingCta, { passive: true });
+      window.addEventListener("resize", updateFloatingCta, { passive: true });
+      updateFloatingCta();
+      window.__updateFloatingCta = updateFloatingCta;
+    })();
+
+    // タイマー制御
+    (function () {
+      const badgeEl = document.getElementById("banner-status-badge");
+      const labelEl = document.getElementById("timer-label");
+      const wrapperEl = document.getElementById("countdown-wrapper");
+      const bannerPeriodEl = document.getElementById("banner-period-text");
+      const daysEl = document.getElementById("timer-days");
+      const hoursEl = document.getElementById("timer-hours");
+      const minutesEl = document.getElementById("timer-minutes");
+      const secondsEl = document.getElementById("timer-seconds");
+
+      const mainActive = document.getElementById("main-cta-active");
+      const mainClosed = document.getElementById("main-cta-closed");
+
+      function setCallToActionState(isClosed) {
+        if (isClosed) {
+          if (mainActive) mainActive.classList.add("hidden");
+          if (mainClosed) mainClosed.classList.remove("hidden");
+        } else {
+          if (mainActive) mainActive.classList.remove("hidden");
+          if (mainClosed) mainClosed.classList.add("hidden");
+        }
+      }
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const isClosed = FORCE_CLOSED || (now > endDate);
+
+        if (isClosed) {
+          if (badgeEl) {
+            badgeEl.textContent = "受付終了";
+            badgeEl.className = "inline-block bg-white/80 text-[#006B6B] text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full tracking-wider whitespace-nowrap";
+          }
+          if (bannerPeriodEl) {
+            bannerPeriodEl.textContent = "【受付終了】";
+          }
+          if (wrapperEl) {
+            wrapperEl.innerHTML = '<span class="bg-white/90 px-3 py-1 rounded-md text-[#006B6B] text-xs font-medium">今回の募集は終了いたしました</span>';
+          }
+          setCallToActionState(true);
+          if (window.__updateFloatingCta) {
+            window.__updateFloatingCta();
+          }
+        } else if (now < startDate) {
+          if (badgeEl) {
+            badgeEl.textContent = "まもなく募集開始";
+            badgeEl.className = "inline-block bg-white text-[#006B6B] text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full tracking-wider shadow-sm whitespace-nowrap";
+          }
+          if (labelEl) {
+            labelEl.textContent = "募集開始まであと";
+          }
+          renderDiff(startDate - now);
+          setCallToActionState(false);
+        } else {
+          if (badgeEl) {
+            badgeEl.textContent = "期間限定・募集中";
+            badgeEl.className = "inline-block bg-white text-[#006B6B] text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full tracking-wider animate-pulse shadow-sm whitespace-nowrap";
+          }
+          if (labelEl) {
+            labelEl.textContent = "募集締切まであと";
+          }
+          renderDiff(endDate - now);
+          setCallToActionState(false);
+        }
+      }
+
+      function renderDiff(diff) {
+        if (diff <= 0) diff = 0;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        if (daysEl) daysEl.textContent = String(days).padStart(2, "0");
+        if (hoursEl) hoursEl.textContent = String(hours).padStart(2, "0");
+        if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, "0");
+        if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, "0");
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    })();
+  </script>
+
+</body>
+</html>

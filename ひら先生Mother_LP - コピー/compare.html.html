@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>デザイン比較ビューアー｜ひら先生LP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #F3F4F6;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .iframe-container {
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col text-slate-800">
+
+  <!-- 操作ナビゲーションバー -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-md border-b border-slate-200 px-4 py-3">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      
+      <!-- タイトル -->
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-[#B98232] inline-block"></span>
+        <h1 class="text-base sm:text-lg font-bold text-slate-900">
+          LP CTAカラー比較プレビュー
+        </h1>
+      </div>
+
+      <!-- 表示モード切替 -->
+      <div class="flex items-center bg-slate-100 p-1 rounded-xl gap-1 text-xs sm:text-sm font-bold">
+        <button id="btn-new" onclick="setViewMode('new')" class="px-3.5 py-1.5 rounded-lg transition bg-[#B98232] text-white shadow-sm flex items-center gap-1.5 cursor-pointer">
+          <span class="w-2.5 h-2.5 rounded-full bg-white"></span>
+          <span>修正後（Gold CTA #B98232）</span>
+        </button>
+        <button id="btn-old" onclick="setViewMode('old')" class="px-3.5 py-1.5 rounded-lg transition text-slate-600 hover:text-slate-900 flex items-center gap-1.5 cursor-pointer">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#008080]"></span>
+          <span>修正前（Teal CTA）</span>
+        </button>
+        <button id="btn-split" onclick="setViewMode('split')" class="px-3.5 py-1.5 rounded-lg transition text-slate-600 hover:text-slate-900 flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-columns"></i>
+          <span>並べて比較</span>
+        </button>
+      </div>
+
+      <!-- デバイス切替 ＆ 単体別窓リンク -->
+      <div class="flex items-center gap-2">
+        <div class="flex items-center bg-slate-100 p-1 rounded-xl text-xs">
+          <button id="device-mobile" onclick="setDeviceMode('mobile')" class="px-2.5 py-1.5 rounded-lg transition text-slate-600 hover:text-slate-900 flex items-center gap-1 cursor-pointer">
+            <i class="fa-solid fa-mobile-screen"></i>
+            <span class="hidden sm:inline">スマホ(390px)</span>
+          </button>
+          <button id="device-pc" onclick="setDeviceMode('pc')" class="px-2.5 py-1.5 rounded-lg transition bg-white text-slate-900 shadow-sm flex items-center gap-1 cursor-pointer">
+            <i class="fa-solid fa-desktop"></i>
+            <span class="hidden sm:inline">PC(100%)</span>
+          </button>
+        </div>
+
+        <div class="flex items-center gap-1 text-xs">
+          <a href="./index.html" target="_blank" class="px-2.5 py-1.5 rounded-lg bg-amber-50 text-amber-900 hover:bg-amber-100 font-medium flex items-center gap-1 border border-amber-200">
+            <span>Gold版を別窓</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+          </a>
+          <a href="./index_backup_teal_original.html" target="_blank" class="px-2.5 py-1.5 rounded-lg bg-teal-50 text-teal-800 hover:bg-teal-100 font-medium flex items-center gap-1 border border-teal-200">
+            <span>Teal版を別窓</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 配色説明バー -->
+    <div class="max-w-7xl mx-auto mt-2 pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between text-xs text-slate-600 gap-2">
+      <div class="flex items-center gap-4 flex-wrap">
+        <div class="flex items-center gap-1.5">
+          <span class="font-bold text-amber-800">👑 修正後（Gold CTA）：</span>
+          <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-white border border-slate-200"><span class="w-3 h-3 rounded-full" style="background:#B98232;"></span>申込みCTA通常 (#B98232)</span>
+          <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-white border border-slate-200"><span class="w-3 h-3 rounded-full" style="background:#9F6E28;"></span>CTAホバー (#9F6E28)</span>
+          <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-white border border-slate-200"><span class="w-3 h-3 rounded-full" style="background:#008080;"></span>案内CTA・ブランド (#008080)</span>
+          <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-white border border-slate-200"><span class="w-3 h-3 rounded-full" style="background:#C6A15B;"></span>特別特典 (#C6A15B)</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="font-bold text-teal-800">💎 修正前（Teal CTA）：</span>
+          <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-white border border-slate-200"><span class="w-3 h-3 rounded-full" style="background:#008080;"></span>全CTA (#008080)</span>
+        </div>
+      </div>
+      <p class="text-[11px] text-slate-500">※ボタンをクリックして瞬時に見比べられます</p>
+    </div>
+  </header>
+
+  <!-- メイン表示領域 -->
+  <main class="flex-1 p-3 sm:p-5 flex justify-center items-start overflow-hidden">
+    <div id="view-wrapper" class="w-full flex justify-center gap-4 transition-all duration-300">
+
+      <!-- 新デザイン（Gold CTA） iframe コンテナ -->
+      <div id="container-new" class="iframe-container flex flex-col bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden w-full h-[calc(100vh-140px)]">
+        <div class="bg-[#B98232] text-white px-4 py-2 text-xs font-bold flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-white animate-pulse"></span>
+            <span>修正後（主要申込みCTA：Gold #B98232 / ホバー #9F6E28 / 自然なシャドウ）</span>
+          </div>
+          <span class="text-[11px] opacity-90">index.html</span>
+        </div>
+        <iframe id="iframe-new" src="./index.html" class="w-full flex-1 border-0"></iframe>
+      </div>
+
+      <!-- 変更前（Teal CTA） iframe コンテナ -->
+      <div id="container-old" class="iframe-container flex flex-col bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden w-full h-[calc(100vh-140px)] hidden">
+        <div class="bg-[#008080] text-white px-4 py-2 text-xs font-bold flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-white"></span>
+            <span>修正前（Teal CTA維持版）</span>
+          </div>
+          <span class="text-[11px] opacity-90">index_backup_teal_original.html</span>
+        </div>
+        <iframe id="iframe-old" src="./index_backup_teal_original.html" class="w-full flex-1 border-0"></iframe>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    let currentView = 'new';
+    let currentDevice = 'pc';
+
+    function setViewMode(mode) {
+      currentView = mode;
+      const cNew = document.getElementById('container-new');
+      const cOld = document.getElementById('container-old');
+      const bNew = document.getElementById('btn-new');
+      const bOld = document.getElementById('btn-old');
+      const bSplit = document.getElementById('btn-split');
+
+      // リセットボタンスタイル
+      [bNew, bOld, bSplit].forEach(btn => {
+        btn.className = 'px-3.5 py-1.5 rounded-lg transition text-slate-600 hover:text-slate-900 flex items-center gap-1.5 cursor-pointer';
+      });
+
+      if (mode === 'new') {
+        cNew.classList.remove('hidden');
+        cOld.classList.add('hidden');
+        bNew.className = 'px-3.5 py-1.5 rounded-lg transition bg-[#B98232] text-white shadow-sm flex items-center gap-1.5 cursor-pointer';
+      } else if (mode === 'old') {
+        cNew.classList.add('hidden');
+        cOld.classList.remove('hidden');
+        bOld.className = 'px-3.5 py-1.5 rounded-lg transition bg-[#008080] text-white shadow-sm flex items-center gap-1.5 cursor-pointer';
+      } else if (mode === 'split') {
+        cNew.classList.remove('hidden');
+        cOld.classList.remove('hidden');
+        bSplit.className = 'px-3.5 py-1.5 rounded-lg transition bg-slate-800 text-white shadow-sm flex items-center gap-1.5 cursor-pointer';
+      }
+      applyDeviceWidth();
+    }
+
+    function setDeviceMode(device) {
+      currentDevice = device;
+      const dMobile = document.getElementById('device-mobile');
+      const dPc = document.getElementById('device-pc');
+
+      if (device === 'mobile') {
+        dMobile.className = 'px-2.5 py-1.5 rounded-lg transition bg-white text-slate-900 shadow-sm flex items-center gap-1 cursor-pointer';
+        dPc.className = 'px-2.5 py-1.5 rounded-lg transition text-slate-600 hover:text-slate-900 flex items-center gap-1 cursor-pointer';
+      } else {
+        dPc.className = 'px-2.5 py-1.5 rounded-lg transition bg-white text-slate-900 shadow-sm flex items-center gap-1 cursor-pointer';
+        dMobile.className = 'px-2.5 py-1.5 rounded-lg transition text-slate-600 hover:text-slate-900 flex items-center gap-1 cursor-pointer';
+      }
+      applyDeviceWidth();
+    }
+
+    function applyDeviceWidth() {
+      const cNew = document.getElementById('container-new');
+      const cOld = document.getElementById('container-old');
+
+      if (currentDevice === 'mobile') {
+        cNew.style.maxWidth = '390px';
+        cOld.style.maxWidth = '390px';
+      } else {
+        cNew.style.maxWidth = currentView === 'split' ? '50%' : '100%';
+        cOld.style.maxWidth = currentView === 'split' ? '50%' : '100%';
+      }
+    }
+
+    // 初期化
+    setViewMode('new');
+    setDeviceMode('pc');
+  </script>
+</body>
+</html>
